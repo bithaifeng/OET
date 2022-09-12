@@ -119,6 +119,7 @@ int show_sync_tag_num = 10;
 int fd,size;
 //#define LENBUFF (1 << 26) 
 #define LENBUFF (6 << 20)
+//#define LENBUFF (48 << 20)
 char bufferw[LENBUFF] = {1}; //16MB
 char bufferr[LENBUFF] = {1};
 unsigned int last_seq = 666;
@@ -153,8 +154,11 @@ extern int reuse_distance_analysis(unsigned long paddr, unsigned long tt);
 
 extern void init_convert_struct();
 extern void convert_trace(unsigned long paddr, unsigned long tt);
+extern void print_ppntimes();
+extern void print_left_ppn();
 
 int page_inlist = 0;
+int max_page_inlist = 0;
 
 /*******************/
 
@@ -435,6 +439,7 @@ unsigned long access_pp[] = {1,2,3, 1, 2, 4, 5, 6, 7, 2, 3, 2};
 int main(int argc, char* argv[]){
 	int i;
 
+	init_convert_struct();
 	init_struct();
 	/* Unit test for reuse distance */
 	unsigned long tmp_ppn = 0;
@@ -469,11 +474,16 @@ int main(int argc, char* argv[]){
 	
 	while(readfilea() == 1){
 	}
+	print_left_ppn();
 
+
+	printf("page_inlist = %d\n", max_page_inlist);
+	print_ppntimes();
 
 	
+	
 	close(fd);
-	print_bitmap_and_reusedistance();
+//	print_bitmap_and_reusedistance();
 
 	return 0;
 }
@@ -510,7 +520,8 @@ void record_filter_table( unsigned long p_addr, unsigned long tt ){
 		tmp.reuse_distance = duration_all - new_ppn[ppn].timer;
 		tmp.real_reuse_distance = tmp_reuse_d;
 //		ppn2entry_struct[ppn].push_back( tmp );
-		printf("ppn = 0x%lx reuseDistance = %d reuseTime = %lu bitmap = 0x%lx  \n", ppn, tmp_reuse_d, tmp.reuse_distance, new_ppn[ppn].bitmap);
+//		printf("ppn = 0x%lx reuseDistance = %d reuseTime = %lu bitmap = 0x%lx  \n", ppn, tmp_reuse_d, tmp.reuse_distance, new_ppn[ppn].bitmap);
+		printf("0x%lx %d %lu 0x%lx\n", ppn, tmp_reuse_d, tmp.reuse_distance, new_ppn[ppn].bitmap);
 		new_ppn[ppn].bitmap = 0;
 	}
 	/*
@@ -694,6 +705,7 @@ struct tmp_list_track{
 	unsigned long bitmap;
 	unsigned long last_access_time;
 	struct tmp_list_track *prev, *next;
+	int access_num;
 };
 
 struct tmp_list_track ppn2struct[MAX_PPN] = {0};
@@ -729,6 +741,8 @@ void insert_ppn(unsigned long ppn){
 	head_list.next->prev = &ppn2struct[ppn];
 	head_list.next = &ppn2struct[ppn];
 	page_inlist ++;
+	if(page_inlist > max_page_inlist)
+		max_page_inlist = page_inlist;
 }
 
 void check_and_insert(unsigned long ppn){
@@ -750,16 +764,33 @@ void check_list_tail(){
 	while( tmp.prev != NULL ){
 		if( duration_all - tmp.last_access_time >= (1ULL << 20) ){
 			//delete and printf
-			ppn = tail_list.ppn;
-			clear_ppn( ppn );
-			printf("ppn 0x%lx bitmap 0x%lx time %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+//			ppn = tail_list.ppn;
+			ppn = tmp.ppn;
 			tmp = *tmp.prev;
+			clear_ppn( ppn );
+//			printf("ppn 0x%lx bitmap 0x%lx time %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+			printf("0x%lx 0x%lx %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+			ppn2struct[ppn].access_num ++;
 		}
 		else{
 			break;
 		}
 	}
 }
+
+void print_left_ppn(){
+	struct tmp_list_track tmp = *tail_list.prev;
+	unsigned long ppn;
+	while( tmp.prev != NULL ){
+		ppn = tmp.ppn;
+                tmp = *tmp.prev;
+                clear_ppn( ppn );
+		printf("0x%lx 0x%lx %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+                ppn2struct[ppn].access_num ++;
+	}
+
+}
+
 
 void convert_trace(unsigned long paddr, unsigned long tt){
 	        int ret = -1;
@@ -770,6 +801,25 @@ void convert_trace(unsigned long paddr, unsigned long tt){
 
 	check_and_insert( ppn );
 	check_list_tail();	
+}
+
+void print_ppntimes(){
+	int access1num = 0;
+	int access2num = 0;
+	int access5num = 0;
+	int i = 0 ;
+	for(i = 0; i < MAX_PPN; i++){
+		if(ppn2struct[i].access_num >= 5){
+			access5num ++;
+		}
+		else if( ppn2struct[i].access_num >= 2 ){
+			access2num ++;
+		}
+		else if( ppn2struct[i].access_num == 1 )
+			access1num ++;
+	}
+	printf("page numbers[access times], %d [1], %d [2-4], %d [>=5]\n", access1num, access2num, access5num);
+	
 }
 
 
