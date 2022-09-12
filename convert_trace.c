@@ -117,6 +117,9 @@ int has_print = 0;
 int show_sync_tag_num = 10;
 
 int fd,size;
+int fd_w;
+
+int write_ptr = 0;
 //#define LENBUFF (1 << 26) 
 #define LENBUFF (6 << 20)
 //#define LENBUFF (48 << 20)
@@ -129,9 +132,11 @@ unsigned long long all_timer = 0;
 unsigned long long usedtrace = 0;
 unsigned long finish_io_tag = 0;
 
+
+
 void writefilea(){
-	printf("sizeof(bufferw) = %d\n",sizeof(bufferw) );
-	write(fd,bufferw, sizeof(bufferw));
+//	printf("sizeof(bufferw) = %d\n",sizeof(bufferw) );
+	write(fd_w,bufferw, sizeof(bufferw));
 }
 unsigned long long trace_id = 0;
 unsigned long long real_trace_id = 0;
@@ -156,6 +161,10 @@ extern void init_convert_struct();
 extern void convert_trace(unsigned long paddr, unsigned long tt);
 extern void print_ppntimes();
 extern void print_left_ppn();
+
+int write_trace_num = 0;
+unsigned long store_file_byte = 0;
+
 
 int page_inlist = 0;
 int max_page_inlist = 0;
@@ -430,6 +439,8 @@ int  readfilea(){
 }
 
 char filename[200] = "/mnt/ssd/tpcc-hmtt-5w.trace";
+char filename_write[200] = "write.trace";
+
 char *q = 0;
 
 
@@ -463,6 +474,9 @@ int main(int argc, char* argv[]){
 		printf("%s\n",argv[1]);
 		strcpy(filename,argv[1]);
 		printf("%s\n",filename);
+		printf("%s\n",argv[2]);
+                strcpy(filename_write,argv[2]);
+		printf("%s\n",filename_write);
 	}
 	for(i = 0; i < LENBUFF << 1; i ++){
 		bufferw[i] = '1';
@@ -470,18 +484,24 @@ int main(int argc, char* argv[]){
 	printf("pid = %d\n",getpid());
 
 	fd=open(filename, O_RDWR |O_CREAT, 0777);
+	fd_w = open(filename_write, O_RDWR |O_CREAT, 0777);
+
 	start_flag = 0;
 	
 	while(readfilea() == 1){
 	}
 	print_left_ppn();
+//	write(fd_w,bufferw, sizeof(bufferw));
+	write(fd_w,bufferw, write_ptr);
+	store_file_byte += write_ptr;
 
+	printf("store_file_byte = %lu, write_trace_num = %d\n", store_file_byte, write_trace_num);
 
 	printf("page_inlist = %d\n", max_page_inlist);
 	print_ppntimes();
 
 	
-	
+	close(fd_w);	
 	close(fd);
 //	print_bitmap_and_reusedistance();
 
@@ -745,6 +765,28 @@ void insert_ppn(unsigned long ppn){
 		max_page_inlist = page_inlist;
 }
 
+void copy_and_write(unsigned long ppn, unsigned long bitmap, unsigned long last_access_time  ){
+//	strcpy(bufferw + write_ptr,  &ppn);
+	* (unsigned long *)(bufferw + write_ptr) = ppn;
+	write_ptr += sizeof(ppn);
+//	strcpy(bufferw + write_ptr,  &bitmap);
+
+	* (unsigned long *)(bufferw + write_ptr) = bitmap;
+	write_ptr += sizeof(bitmap);
+
+//	strcpy(bufferw + write_ptr,  &last_access_time);
+	* (unsigned long *)(bufferw + write_ptr) = last_access_time;
+	write_ptr += sizeof(last_access_time);
+
+	if(write_ptr + 24 >= LENBUFF ){
+//		write(fd_w,bufferw, sizeof(bufferw));
+		write(fd_w,bufferw, write_ptr);
+		store_file_byte += write_ptr;
+		write_ptr = 0;
+	}
+}
+
+
 void check_and_insert(unsigned long ppn){
 	if(ppn2struct[ppn].prev != NULL && ppn2struct[ppn].next != NULL){
 		//update it
@@ -769,7 +811,9 @@ void check_list_tail(){
 			tmp = *tmp.prev;
 			clear_ppn( ppn );
 //			printf("ppn 0x%lx bitmap 0x%lx time %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
-			printf("0x%lx 0x%lx %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+//			printf("0x%lx 0x%lx %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+			copy_and_write(ppn,  ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+			write_trace_num ++;
 			ppn2struct[ppn].access_num ++;
 		}
 		else{
@@ -785,7 +829,9 @@ void print_left_ppn(){
 		ppn = tmp.ppn;
                 tmp = *tmp.prev;
                 clear_ppn( ppn );
-		printf("0x%lx 0x%lx %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+//		printf("0x%lx 0x%lx %lu\n",ppn, ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+		copy_and_write(ppn,  ppn2struct[ppn].bitmap, ppn2struct[ppn].last_access_time);
+		write_trace_num ++;
                 ppn2struct[ppn].access_num ++;
 	}
 
@@ -819,7 +865,6 @@ void print_ppntimes(){
 			access1num ++;
 	}
 	printf("page numbers[access times], %d [1], %d [2-4], %d [>=5]\n", access1num, access2num, access5num);
-	
 }
 
 
