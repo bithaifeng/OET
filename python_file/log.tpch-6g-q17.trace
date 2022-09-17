@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/tpch-6g-q17.trace
+/mnt/ssd/lhf/tpch-6g-q17.trace
+/mnt/ssd/lhf/simpletrace/tpch-6g-q17.simpletrace
+/mnt/ssd/lhf/simpletrace/tpch-6g-q17.simpletrace
+pid = 2251
+finish size =0 
+store_file_byte = 2772399480, write_trace_num = 115516645
+page_inlist = 27623
+page numbers[access times], 270908 [1], 1478954 [2-4], 2143914 [>=5]

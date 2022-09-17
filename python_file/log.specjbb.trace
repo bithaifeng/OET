@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/specjbb.trace
+/mnt/ssd/lhf/specjbb.trace
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+pid = 2279
+finish size =0 
+store_file_byte = 22520634216, write_trace_num = 938359759
+page_inlist = 12429
+page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

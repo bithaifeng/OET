@@ -6,9 +6,11 @@ def read_path(dir_name):
 #		print('sub_dirs:', dirs)
 #	        print('files:', files)
 		for lines in files:
-			print(lines)
-			print(lines.replace(".trace",".simpletrace"))
-			print("log." + lines)
+                        cmd = "time ../convert_trace /mnt/ssd/lhf/" + lines + " /mnt/ssd/lhf/simpletrace/" + lines.replace(".trace",".simpletrace") + " > log."+lines + ";"
+#			print(lines)
+                        print(cmd)
+#			print(lines.replace(".trace",".simpletrace"))
+#			print("log." + lines)
 		
 
 

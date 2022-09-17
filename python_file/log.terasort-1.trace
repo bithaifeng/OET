@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/terasort-1.trace
+/mnt/ssd/lhf/terasort-1.trace
+/mnt/ssd/lhf/simpletrace/terasort-1.simpletrace
+/mnt/ssd/lhf/simpletrace/terasort-1.simpletrace
+pid = 1964
+finish size =0 
+store_file_byte = 0, write_trace_num = 0
+page_inlist = 0
+page numbers[access times], 0 [1], 0 [2-4], 0 [>=5]

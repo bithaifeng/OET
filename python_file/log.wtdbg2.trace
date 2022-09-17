@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/wtdbg2.trace
+/mnt/ssd/lhf/wtdbg2.trace
+/mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
+/mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
+pid = 2284
+finish size =0 
+store_file_byte = 2454253056, write_trace_num = 102260544
+page_inlist = 5126
+page numbers[access times], 15034 [1], 19589 [2-4], 221920 [>=5]
