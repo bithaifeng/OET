@@ -312,7 +312,7 @@ void check_pn_arc( unsigned long page_number ){
 }
 
 void print_analysis_lirs(){
-	printf("hit num = %lu, miss num = %lu\n", hit_num_arc, miss_num_arc);
+//	printf("hit num = %lu, miss num = %lu\n", hit_num_arc, miss_num_arc);
 
 	printf("miss_num = %lu, hit_num = %lu, sum = %lu\n", miss_num_arc, hit_num_arc, miss_num_arc + hit_num_arc );
 	printf("mem_using = %d\n", mem_using);

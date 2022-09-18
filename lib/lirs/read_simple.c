@@ -180,7 +180,9 @@ int main(int argc, char* argv[]){
 	
 	//tpch-6g-q2.simpletrace
 	int local_c = 471859;
-	local_c = 471859/2;
+        local_c = 1835008; // pgrank 50%
+	local_c = local_c / 2;
+//	local_c = 471859/2;
 	init_lirs(local_c);		
 
 

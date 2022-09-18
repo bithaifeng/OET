@@ -81,7 +81,7 @@ unsigned long get_ppn_from_stackQ(){
 	struct lirs_entry* tmp;
 	tmp = tail_lirs[1].prev;
 	if(tmp->prev == NULL){
-		printf("stack Q is empty\n");
+//		printf("stack Q is empty\n");
 		return local_cache_size;
 	}
 	ppn = tmp->ppn;
@@ -340,7 +340,7 @@ void check_pn_lirs( unsigned long page_number ){
 }
 
 void print_analysis_lirs(){
-	printf("hit num = %lu, miss num = %lu\n", hit_num_lirs, miss_num_lirs);
+//	printf("hit num = %lu, miss num = %lu\n", hit_num_lirs, miss_num_lirs);
 
 	printf("stackS num = %lu, stackQ num = %lu, all = %lu\n", lirs_num[0], lirs_num[1], lirs_num[0] + lirs_num[1]);        
 	printf("real stackS [%lu], stackQ [%lu] \n", lirs_num_real[0], lirs_num_real[1]);
