@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/spark-graphx-pgrank.simpletrace
+/mnt/ssd/lhf/simpletrace/spark-graphx-pgrank.simpletrace
+local_c = 379059
+pid = 6018
+local cache size = 379059
+finish size =0 
+stackS num = 379058, stackQ num = 1, all = 379059
+real stackS [652101], stackQ [1] 
+miss_num = 76579785, hit_num = 555444566, sum = 632024351
+rate = 0.121166
+page numbers[access times], 753239 [1], 1252685 [2-4], 2537907 [>=5]

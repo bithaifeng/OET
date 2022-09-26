@@ -1,0 +1,18 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/test.simpletrace
+/mnt/ssd/lhf/simpletrace/test.simpletrace
+local_c = 86
+local cache size = 86
+pid = 2063
+finish size =0 
+maintains[0] = 0
+maintains[1] = 0
+maintains[2] = 0
+maintains[3] = 0
+maintains[4] = 0
+maintains[5] = 0
+maintains[6] = 79
+maintains[7] = 7
+miss_num = 1664, hit_num = 51, sum = 1715
+mem_using = 86
+page numbers[access times], 1308 [1], 211 [2-4], 4 [>=5]

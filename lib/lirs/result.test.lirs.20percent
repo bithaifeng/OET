@@ -1,0 +1,11 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/test.simpletrace
+/mnt/ssd/lhf/simpletrace/test.simpletrace
+local_c = 43
+pid = 1929
+local cache size = 43
+finish size =0 
+stackS num = 42, stackQ num = 1, all = 43
+real stackS [466], stackQ [1] 
+miss_num = 1707, hit_num = 51, sum = 1758
+page numbers[access times], 1308 [1], 211 [2-4], 4 [>=5]

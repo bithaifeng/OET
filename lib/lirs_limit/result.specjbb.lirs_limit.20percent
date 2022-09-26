@@ -1,0 +1,11 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+local_c = 301977
+pid = 6658
+local cache size = 301977
+finish size =0 
+stackS num = 298959, stackQ num = 3018, all = 301977
+real stackS [629117], stackQ [3018] 
+miss_num = 146903044, hit_num = 791154738, sum = 938057782
+page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

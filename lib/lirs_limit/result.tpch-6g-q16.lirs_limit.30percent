@@ -1,0 +1,11 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/tpch-6g-q16.simpletrace
+/mnt/ssd/lhf/simpletrace/tpch-6g-q16.simpletrace
+local_c = 226240
+pid = 6615
+local cache size = 226240
+finish size =0 
+stackS num = 223978, stackQ num = 2262, all = 226240
+real stackS [581059], stackQ [2262] 
+miss_num = 3077274, hit_num = 18083290, sum = 21160564
+page numbers[access times], 406645 [1], 267709 [2-4], 486426 [>=5]

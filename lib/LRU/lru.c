@@ -130,7 +130,7 @@ void check_pn_lru( unsigned long page_number ){
 }
 
 void print_analysis_lirs(){
-	printf("hit num = %lu, miss num = %lu\n", hit_num_lru, miss_num_lru);
+//	printf("hit num = %lu, miss num = %lu\n", hit_num_lru, miss_num_lru);
 
 	printf("miss_num = %lu, hit_num = %lu, sum = %lu\n", miss_num_lru, hit_num_lru, miss_num_lru + hit_num_lru );
 	printf("mem_using = %d\n", mem_using);

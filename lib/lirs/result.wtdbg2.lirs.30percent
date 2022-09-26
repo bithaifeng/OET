@@ -1,0 +1,11 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
+/mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
+local_c = 72452
+pid = 2053
+local cache size = 72452
+finish size =0 
+stackS num = 72451, stackQ num = 1, all = 72452
+real stackS [89115], stackQ [1] 
+miss_num = 4187420, hit_num = 98000672, sum = 102188092
+page numbers[access times], 15034 [1], 19589 [2-4], 221920 [>=5]

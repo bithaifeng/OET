@@ -1,7 +1,7 @@
 #include "et.h"
 
 #define RRIP_BITS 3
-#define INSERT_VALUE ((1 << RRIP_BITS) - 1)
+#define INSERT_VALUE ((1 << RRIP_BITS) - 2)
 
 
 

@@ -184,7 +184,7 @@ int main(int argc, char* argv[]){
         local_c = 1835008/2; // pgrank 50%
 //	local_c = 10;
 //	local_c = 471859/2;
-	init_et(local_c);		
+//	init_et(local_c);		
 
 
 
@@ -198,10 +198,13 @@ int main(int argc, char* argv[]){
 		printf("%s\n",argv[1]);
 		strcpy(filename,argv[1]);
 		printf("%s\n",filename);
+		local_c = atoi(argv[2]);
+                printf("local_c = %d\n", local_c);
 	}
 	for(i = 0; i < LENBUFF << 1; i ++){
 		bufferw[i] = '1';
 	}
+	init_et(local_c);		
 	printf("pid = %d\n",getpid());
 
 	fd=open(filename, O_RDWR |O_CREAT, 0777);

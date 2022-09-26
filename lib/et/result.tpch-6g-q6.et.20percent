@@ -1,0 +1,18 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/tpch-6g-q6.simpletrace
+/mnt/ssd/lhf/simpletrace/tpch-6g-q6.simpletrace
+local_c = 188804
+local cache size = 188804
+pid = 2263
+finish size =0 
+maintains[0] = 22528
+maintains[1] = 2883
+maintains[2] = 3549
+maintains[3] = 4734
+maintains[4] = 8258
+maintains[5] = 11303
+maintains[6] = 109400
+maintains[7] = 26149
+miss_num = 23110578, hit_num = 13170413, sum = 36280991
+mem_using = 188804
+page numbers[access times], 1207604 [1], 75594 [2-4], 868426 [>=5]

@@ -1,0 +1,13 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/test.simpletrace
+/mnt/ssd/lhf/simpletrace/test.simpletrace
+local_c = 21
+pid = 6608
+local cache size = 21
+error in get_ppn_from stackQ, status = 0
+error in get_ppn_from stackQ, status = 0
+finish size =0 
+stackS num = 21, stackQ num = 1, all = 22
+real stackS [372], stackQ [1] 
+miss_num = 1749, hit_num = 31, sum = 1780
+page numbers[access times], 1308 [1], 211 [2-4], 4 [>=5]

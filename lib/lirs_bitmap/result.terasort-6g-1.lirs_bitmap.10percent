@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
+/mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
+local_c = 372834
+pid = 6213
+local cache size = 372834
+finish size =0 
+stackS num = 372833, stackQ num = 1, all = 372834
+real stackS [1080078], stackQ [1] 
+miss_num = 22006143, hit_num = 162511666, sum = 184517809
+rate = 0.119263
+page numbers[access times], 1587888 [1], 2258771 [2-4], 1469569 [>=5]

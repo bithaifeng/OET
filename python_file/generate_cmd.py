@@ -1,5 +1,8 @@
 import os,sys
 
+
+evict_algo = "./lru"
+
 def read_path(dir_name):
 	for root, dirs, files in os.walk(dir_name):
 #		print('root_dir:', root)
