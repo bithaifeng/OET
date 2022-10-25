@@ -2,11 +2,22 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/specjbb.simpletrace
 /mnt/ssd/lhf/simpletrace/specjbb.simpletrace
 local_c = 754944
-pid = 6196
+pid = 24500
 local cache size = 754944
 finish size =0 
-stackS num = 754943, stackQ num = 1, all = 754944
-real stackS [1403932], stackQ [1] 
-miss_num = 121950617, hit_num = 815654198, sum = 937604815
-rate = 0.130066
+stackS num = 139322, stackQ num = 7548, all = 146870
+real stackS [1389107], stackQ [7548] 
+miss_num = 122078903, hit_num = 815525912, sum = 937604815
+rate = 0.130203
+first_access_time = 2852893
+ In time:
+i = 0, num = 332319787 ;  [0,0] ~ 245393519 [0,1] ~ 127965 [0,2] ~ 27289335 [0,3] ~ 59508968
+i = 1, num = 967112 ;  [1,0] ~ 587791 [1,1] ~ 1273 [1,2] ~ 83355 [1,3] ~ 294693
+i = 2, num = 85167175 ;  [2,0] ~ 48864879 [2,1] ~ 34679 [2,2] ~ 8456160 [2,3] ~ 27811457
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 516701243 ;  [0,0] ~ 516529625 [0,1] ~ 6396 [0,2] ~ 16215 [0,3] ~ 149007
+i = 1, num = 135880 ;  [1,0] ~ 32344 [1,1] ~ 48812 [1,2] ~ 92 [1,3] ~ 54632
+i = 2, num = 91584 ;  [2,0] ~ 53152 [2,1] ~ 164 [2,2] ~ 8089 [2,3] ~ 30179
+i = 3, num = 124085 ;  [3,0] ~ 20773 [3,1] ~ 420 [3,2] ~ 1 [3,3] ~ 102891
 page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

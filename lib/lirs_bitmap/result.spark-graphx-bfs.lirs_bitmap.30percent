@@ -2,11 +2,22 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/spark-graphx-bfs.simpletrace
 /mnt/ssd/lhf/simpletrace/spark-graphx-bfs.simpletrace
 local_c = 765233
-pid = 6081
+pid = 22254
 local cache size = 765233
 finish size =0 
-stackS num = 765232, stackQ num = 1, all = 765233
-real stackS [1151404], stackQ [1] 
-miss_num = 18269958, hit_num = 287475666, sum = 305745624
-rate = 0.059755
+stackS num = 572960, stackQ num = 7652, all = 580612
+real stackS [1114555], stackQ [7652] 
+miss_num = 18685115, hit_num = 287060509, sum = 305745624
+rate = 0.061113
+first_access_time = 3769172
+ In time:
+i = 0, num = 250966202 ;  [0,0] ~ 236256421 [0,1] ~ 42194 [0,2] ~ 4861814 [0,3] ~ 9805773
+i = 1, num = 195748 ;  [1,0] ~ 65779 [1,1] ~ 982 [1,2] ~ 2936 [1,3] ~ 126051
+i = 2, num = 9155058 ;  [2,0] ~ 6209503 [2,1] ~ 6709 [2,2] ~ 740274 [2,3] ~ 2198572
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 41111881 ;  [0,0] ~ 40672123 [0,1] ~ 30069 [0,2] ~ 44494 [0,3] ~ 365195
+i = 1, num = 458769 ;  [1,0] ~ 69905 [1,1] ~ 223399 [1,2] ~ 5503 [1,3] ~ 159962
+i = 2, num = 203462 ;  [2,0] ~ 16629 [2,1] ~ 898 [2,2] ~ 143356 [2,3] ~ 42579
+i = 3, num = 650565 ;  [3,0] ~ 58042 [3,1] ~ 4839 [3,2] ~ 3310 [3,3] ~ 584374
 page numbers[access times], 738973 [1], 612950 [2-4], 1937828 [>=5]

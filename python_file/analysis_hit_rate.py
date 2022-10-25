@@ -7,8 +7,8 @@ import os,sys,re
 #algo = "et"
 algo = "lirs"
 
-algo_name = ["ARC","et", "lirs", "LRU","lirs_limit"]
-indir_name = [ "arc","et", "lirs", "lru","lirs_limit" ]
+algo_name = ["ARC","et", "lirs", "LRU","lirs_limit", "lirs_bitmap"]
+indir_name = [ "arc","et", "lirs", "lru","lirs_limit", "lirs_bitmap"]
 
 
 for fname in os.listdir("."):
@@ -20,7 +20,7 @@ for fname in os.listdir("."):
         for i in range(1,6):
             # 10 persent to 50 persent
 #            for j in range(1):
-            for j in range(4,5):
+            for j in range(5,6):
                 filename = "/root/lhf/evict_analysis/OET/lib/" + algo_name[j] + "/result." + name[0] + "." \
                         + indir_name[j] + "." + str(i * 10) + "percent"
 #                print(filename)
@@ -33,7 +33,7 @@ for fname in os.listdir("."):
                         list_tmp = line.split()
                         # hit rate
 #                        print(list_tmp)
-                        print( float( list_tmp[2].replace(",","") ) / float( list_tmp[-1]) )
+                        print( filename , float( list_tmp[2].replace(",","") ) / float( list_tmp[-1]) )
 
 #            break
             

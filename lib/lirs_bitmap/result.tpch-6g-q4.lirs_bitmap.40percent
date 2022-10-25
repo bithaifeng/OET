@@ -2,11 +2,22 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/tpch-6g-q4.simpletrace
 /mnt/ssd/lhf/simpletrace/tpch-6g-q4.simpletrace
 local_c = 673030
-pid = 6105
+pid = 22308
 local cache size = 673030
 finish size =0 
-stackS num = 673029, stackQ num = 1, all = 673030
-real stackS [1313040], stackQ [1] 
-miss_num = 13198572, hit_num = 49525103, sum = 62723675
-rate = 0.210424
+stackS num = 561685, stackQ num = 6730, all = 568415
+real stackS [943205], stackQ [6730] 
+miss_num = 12795584, hit_num = 49928091, sum = 62723675
+rate = 0.203999
+first_access_time = 1788447
+ In time:
+i = 0, num = 42662560 ;  [0,0] ~ 36135422 [0,1] ~ 9159 [0,2] ~ 1300545 [0,3] ~ 5217434
+i = 1, num = 121232 ;  [1,0] ~ 53418 [1,1] ~ 721 [1,2] ~ 5509 [1,3] ~ 61584
+i = 2, num = 9032404 ;  [2,0] ~ 3035791 [2,1] ~ 1279 [2,2] ~ 485819 [2,3] ~ 5509515
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 9150620 ;  [0,0] ~ 8913144 [0,1] ~ 16480 [0,2] ~ 5921 [0,3] ~ 215075
+i = 1, num = 224185 ;  [1,0] ~ 30491 [1,1] ~ 129341 [1,2] ~ 669 [1,3] ~ 63684
+i = 2, num = 77798 ;  [2,0] ~ 9526 [2,1] ~ 281 [2,2] ~ 46886 [2,3] ~ 21105
+i = 3, num = 339459 ;  [3,0] ~ 34641 [3,1] ~ 5266 [3,2] ~ 647 [3,3] ~ 298905
 page numbers[access times], 1481201 [1], 366964 [2-4], 1315612 [>=5]

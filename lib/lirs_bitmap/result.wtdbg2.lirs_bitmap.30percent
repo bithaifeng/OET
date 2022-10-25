@@ -2,11 +2,22 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
 /mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
 local_c = 72452
-pid = 6174
+pid = 22424
 local cache size = 72452
 finish size =0 
-stackS num = 72451, stackQ num = 1, all = 72452
-real stackS [89115], stackQ [1] 
-miss_num = 4188512, hit_num = 97999580, sum = 102188092
-rate = 0.040988
+stackS num = 50491, stackQ num = 722, all = 51213
+real stackS [83907], stackQ [722] 
+miss_num = 4339510, hit_num = 97848582, sum = 102188092
+rate = 0.042466
+first_access_time = 392906
+ In time:
+i = 0, num = 89496577 ;  [0,0] ~ 87193857 [0,1] ~ 5285 [0,2] ~ 843708 [0,3] ~ 1453727
+i = 1, num = 22091 ;  [1,0] ~ 7233 [1,1] ~ 165 [1,2] ~ 141 [1,3] ~ 14552
+i = 2, num = 2968552 ;  [2,0] ~ 1183645 [2,1] ~ 122 [2,2] ~ 21588 [2,3] ~ 1763197
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 9190284 ;  [0,0] ~ 9120910 [0,1] ~ 4446 [0,2] ~ 6450 [0,3] ~ 58478
+i = 1, num = 56529 ;  [1,0] ~ 18527 [1,1] ~ 26442 [1,2] ~ 476 [1,3] ~ 11084
+i = 2, num = 30564 ;  [2,0] ~ 4176 [2,1] ~ 127 [2,2] ~ 20363 [2,3] ~ 5898
+i = 3, num = 103041 ;  [3,0] ~ 2983 [3,1] ~ 455 [3,2] ~ 290 [3,3] ~ 99313
 page numbers[access times], 15034 [1], 19589 [2-4], 221920 [>=5]

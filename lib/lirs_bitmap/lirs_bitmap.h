@@ -70,7 +70,7 @@ struct lirs_entry{
 extern struct lirs_entry vpn2list_entry[ MAX_PPN ];
 extern struct lirs_entry ppn2list_entry_stackQ[ MAX_PPN ];
 
-extern void check_pn_lirs(unsigned long page_number, unsigned long check_pn_lirs);
+extern void check_pn_lirs(unsigned long page_number, unsigned long check_pn_lirs, unsigned long last_access_time);
 
 extern void init_lirs(int cache_size);
 

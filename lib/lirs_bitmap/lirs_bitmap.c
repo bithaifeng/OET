@@ -30,14 +30,116 @@ extern void stack_pruning();
 //record bitmap to 
 struct bit2vpn{
 	unsigned long vpn;
-	unsigned long last_access_time;	
+	unsigned long last_access_time;
 };
 unordered_map<unsigned long, struct bit2vpn> bitmap2struct;
 
-unsigned long check_and_return(unsigned long vpn, unsigned long bitmap){
-	unsigned long ret = 0;
-	if(bitmap2struct[bitmap])
-	
+#define BITMAP_TIME_INTERVAL (1ULL << 20)
+
+int last_access_num[4][4] = {0};
+int last_access_num_overtime[4][4] = {0};
+int first_access_time = 0;
+unsigned long last_vpn = 0;
+
+int check_and_return(unsigned long vpn, unsigned long bitmap, unsigned long current_time){
+	int ret = 0;
+	if(bitmap2struct[bitmap].vpn == 0){
+		// first insert
+		;
+		bitmap2struct[bitmap].vpn = vpn;
+		bitmap2struct[bitmap].last_access_time = current_time;
+		first_access_time ++;
+		ret = -1;
+
+	}
+	else{
+		unsigned long tmp_vpn = bitmap2struct[bitmap].vpn;
+		last_vpn = tmp_vpn;
+		// second insert
+		//check time first
+		if( current_time - bitmap2struct[bitmap].last_access_time >=  BITMAP_TIME_INTERVAL){
+			//update time
+			bitmap2struct[bitmap].last_access_time = current_time;
+
+			ret = -1;
+			if( vpn2list_entry[tmp_vpn].status != -1){
+				if( vpn2list_entry[vpn].status != -1 ){
+					last_access_num_overtime[ vpn2list_entry[tmp_vpn].status ][ vpn2list_entry[vpn].status ]   ++;
+				}
+				else{
+					last_access_num_overtime[ vpn2list_entry[tmp_vpn].status ][3] ++;
+				}
+
+			}
+			else{
+				if( vpn2list_entry[vpn].status != -1 ){
+					last_access_num_overtime[3][ vpn2list_entry[vpn].status ] ++;
+				}
+				else{
+					last_access_num_overtime[3][3] ++;
+				}
+			}
+
+		}
+		else{
+
+			// find previous similar bitmap's vpn
+			// do some  speculate
+			if( vpn2list_entry[tmp_vpn].status != -1){
+				ret = vpn2list_entry[tmp_vpn].status;
+				if( vpn2list_entry[vpn].status != -1 ){
+                                        last_access_num[ vpn2list_entry[tmp_vpn].status ][ vpn2list_entry[vpn].status ]   ++;
+                                }
+                                else{
+                                        last_access_num[ vpn2list_entry[tmp_vpn].status ][3] ++;
+                                }
+			}
+			else{
+				ret = 3;
+				if( vpn2list_entry[vpn].status != -1 ){
+                                        last_access_num[3][ vpn2list_entry[vpn].status ] ++;
+                                }
+                                else{
+                                        last_access_num[3][3] ++;
+                                }
+
+			}
+		}
+
+		bitmap2struct[bitmap].vpn = vpn;
+	}
+	return ret;
+}
+
+void print_bitmap_analysis(){
+	int i,j;
+	int sum = 0;
+	printf("first_access_time = %d\n",first_access_time);
+	printf(" In time:\n");
+	for(i = 0; i < 4; i++){
+		for( j = 0; j < 4; j++ ){
+			sum += last_access_num[i][j];
+		}
+		printf("i = %d, num = %d ; ", i, sum); sum = 0;
+
+		for(j = 0; j < 4; j++){
+			printf(" [%d,%d] ~ %d",i,j,  last_access_num[i][j] );
+		}
+		printf("\n");
+	}
+	printf(" Overtime:\n");
+	for(i = 0; i < 4; i++){
+		for( j = 0; j < 4; j++ ){
+			sum += last_access_num_overtime[i][j];
+		}
+		printf("i = %d, num = %d ; ", i, sum); sum = 0;
+
+
+		for(j = 0; j < 4; j++){
+                        printf(" [%d,%d] ~ %d",i,j,  last_access_num_overtime[i][j] );
+                }
+                printf("\n");
+	}
 }
 
 
@@ -194,6 +296,16 @@ void insert_stack_s(unsigned long vpn){
 	lirs_num_real[0] ++;
 }
 
+void insert_stack_s_last_vpn(unsigned long vpn, unsigned long samebitmap_vpn){
+	vpn2list_entry[samebitmap_vpn].prev->next = &vpn2list_entry[vpn];
+	vpn2list_entry[vpn].next = &vpn2list_entry[samebitmap_vpn];
+
+	vpn2list_entry[vpn].prev = vpn2list_entry[samebitmap_vpn].prev;
+	vpn2list_entry[samebitmap_vpn].prev = &vpn2list_entry[vpn];
+	lirs_num_real[0] ++;
+}
+
+
 void delete_page_lirs_stackS( struct lirs_entry * page_list ){
         page_list->prev->next = page_list->next;
         page_list->next->prev = page_list->prev;
@@ -250,18 +362,20 @@ void stack_pruning(){
 }
 
 
-void check_pn_lirs( unsigned long page_number ,unsigned long bitmap){
+void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned long last_access_time){
 	unsigned long ppn, vpn;
 	vpn = page_number;
 	ppn = vpn2ppn[vpn];
 //	printf("bitmap = 0x%lx\n", bitmap);
-
+	int previous_id = 0;
+	previous_id = check_and_return( vpn, bitmap, last_access_time );
 
 	if( vpn2ppn[vpn] == local_cache_size){
 
 		if(  bitmap == 0xFFFFFFFFFFFFFFFF && init_lirs_flag == 1 ){
 			if (vpn2list_entry[vpn].status == -1){
-                        //new page add it to stack S.
+	                        //new page add it to stack S.
+				// just access one times
                         	insert_stack_s(vpn);
 	                        vpn2list_entry[vpn].status = 2; //first page to stack S, set it to HIR
 				miss_num_lirs ++;
@@ -291,7 +405,13 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap){
 		if( vpn2list_entry[vpn].status == 2 ){
 			vpn2list_entry[vpn].status = 0;
 			delete_page_lirs_stackS( &vpn2list_entry[vpn] );
-			insert_stack_s(vpn);
+//			insert_stack_s(vpn);
+			if(previous_id == 0 || previous_id == 2){
+			insert_stack_s_last_vpn(vpn, last_vpn);
+			}
+			else{
+				insert_stack_s(vpn);
+			}
 
 			lirs_num[0] ++;
 
@@ -318,6 +438,95 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap){
 		}
 		else if (vpn2list_entry[vpn].status == -1){
 			//new page add it to stack S.
+			// the now page is 3 (-1)
+
+			// check previous first, and decide its positin
+			if(previous_id == 2){
+				// [2, 3] to [2, 0]
+				// previous is non-resident, this block should be LIR
+				vpn2list_entry[vpn].status = 0;
+//	                        delete_page_lirs_stackS( &vpn2list_entry[vpn] );
+	                        insert_stack_s_last_vpn(vpn, last_vpn);
+////	                        insert_stack_s(vpn);
+	                        lirs_num[0] ++;			
+
+				//move tail of stack S to tail of stack Q.
+	                        unsigned long tmp_ppn = tail_lirs[0].prev->ppn;
+	                        struct lirs_entry *tmp_tail;
+	                        tmp_tail = tail_lirs[0].prev;
+	                        //change its state to -1
+	                        tmp_tail->status = -1;
+				
+				delete_page_lirs_stackS( tmp_tail );
+	                        lirs_num[0] --;
+	                        insert_page_lirs_tail( tmp_ppn, 1 );  // insert to stack Q                      
+	                        lirs_num[1] ++;
+        	                stack_pruning();
+
+
+                	        vpn2list_entry[vpn].vpn = vpn;
+                        	vpn2list_entry[vpn].ppn = ppn;
+			}
+			else if( previous_id == 1 ){
+				//[1, 3] to [0, 0]
+				// change previous vpn (last_vpn) from HIR to LIR
+				vpn2list_entry[last_vpn].status = 0;
+//				delete_page_lirs_stackS( &vpn2list_entry[last_vpn] );
+//				insert_stack_s(last_vpn);
+//				lirs_num[0] ++;
+
+				delete_page_lirs_stackQ( &ppn2list_entry_stackQ[ vpn2ppn[ last_vpn ] ] );
+				lirs_num[1] --;
+
+				// process this page(vpn)
+				vpn2list_entry[vpn].status = 0;
+				insert_stack_s_last_vpn(vpn, last_vpn);
+				lirs_num[0] ++;
+
+				//move tail of stack S to tail of stack Q.
+                                unsigned long tmp_ppn = tail_lirs[0].prev->ppn;
+                                struct lirs_entry *tmp_tail;
+                                tmp_tail = tail_lirs[0].prev;
+                                //change its state to -1
+                                tmp_tail->status = -1;
+
+                                delete_page_lirs_stackS( tmp_tail );
+                                lirs_num[0] --;
+                                insert_page_lirs_tail( tmp_ppn, 1 );  // insert to stack Q                      
+                                lirs_num[1] ++;
+                                stack_pruning();
+
+
+                                vpn2list_entry[vpn].vpn = vpn;
+                                vpn2list_entry[vpn].ppn = ppn;
+			}
+			else if( previous_id == 0){
+				// [0,3] to [0, 0]
+
+				// process this page(vpn)
+                                vpn2list_entry[vpn].status = 0;
+                                insert_stack_s_last_vpn(vpn, last_vpn);
+                                lirs_num[0] ++;
+
+                                //move tail of stack S to tail of stack Q.
+                                unsigned long tmp_ppn = tail_lirs[0].prev->ppn;
+                                struct lirs_entry *tmp_tail;
+                                tmp_tail = tail_lirs[0].prev;
+                                //change its state to -1
+                                tmp_tail->status = -1;
+
+                                delete_page_lirs_stackS( tmp_tail );
+                                lirs_num[0] --;
+                                insert_page_lirs_tail( tmp_ppn, 1 );  // insert to stack Q                      
+                                lirs_num[1] ++;
+                                stack_pruning();
+
+
+                                vpn2list_entry[vpn].vpn = vpn;
+                                vpn2list_entry[vpn].ppn = ppn;		
+
+			}
+			else{
 			insert_stack_s(vpn);
 			vpn2list_entry[vpn].status = 1; //first page to stack S, set it to HIR
 			vpn2list_entry[vpn].vpn = vpn;
@@ -326,6 +535,7 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap){
 			//also should add it to stack Q, because its a HIR block
 			insert_page_lirs( ppn, 1);
 			lirs_num[1] ++;
+			}
 		}
 		else{
 			printf("error!, status = %d\n ", vpn2list_entry[vpn].status);
@@ -339,9 +549,29 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap){
 		if( vpn2list_entry[vpn].status == 0 ){
 			//move the page to head of stack S
 //			delete_page_lirs( &vpn2list_entry[vpn] );
+			if(previous_id == 0){
+				;
+				delete_page_lirs_stackS( &vpn2list_entry[vpn] );
+				insert_stack_s_last_vpn(vpn,last_vpn);
+				stack_pruning();
+
+			}
+			else if(previous_id == 1){
+				// change its status
+				// [1, 0] to [0, 0]
+				vpn2list_entry[last_vpn].status = 0;
+				delete_page_lirs_stackQ( &ppn2list_entry_stackQ[ vpn2ppn[ last_vpn ] ] );
+                                lirs_num[1] --;
+				
+				delete_page_lirs_stackS( &vpn2list_entry[vpn] );
+				insert_stack_s_last_vpn(vpn,last_vpn);
+				stack_pruning();
+			}
+			else{
 			delete_page_lirs_stackS( &vpn2list_entry[vpn] );
                         insert_stack_s(vpn);
-			stack_pruning();			
+			stack_pruning();
+			}
 		}
 		else if( vpn2list_entry[vpn].status == 1 ){
 			//change the page state and remove the page from Stack Q.
@@ -383,6 +613,7 @@ void print_analysis_lirs(){
 	printf("rate = %lf\n", double(miss_num_lirs)/ (double)( miss_num_lirs + hit_num_lirs ));
 	hit_num_lirs = 0;
 	miss_num_lirs = 0;
+	print_bitmap_analysis();
 }
 
 

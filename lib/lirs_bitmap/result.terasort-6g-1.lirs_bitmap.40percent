@@ -2,11 +2,22 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
 /mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
 local_c = 1491336
-pid = 6217
+pid = 24564
 local cache size = 1491336
 finish size =0 
-stackS num = 1491335, stackQ num = 1, all = 1491336
-real stackS [3147345], stackQ [1] 
-miss_num = 8328345, hit_num = 175070962, sum = 183399307
-rate = 0.045411
+stackS num = 1413338, stackQ num = 14913, all = 1428251
+real stackS [2307463], stackQ [14913] 
+miss_num = 7990454, hit_num = 175408853, sum = 183399307
+rate = 0.043569
+first_access_time = 2447712
+ In time:
+i = 0, num = 161697418 ;  [0,0] ~ 153523282 [0,1] ~ 26911 [0,2] ~ 856488 [0,3] ~ 7290737
+i = 1, num = 70613 ;  [1,0] ~ 17639 [1,1] ~ 82 [1,2] ~ 142 [1,3] ~ 52750
+i = 2, num = 3830566 ;  [2,0] ~ 2740917 [2,1] ~ 2376 [2,2] ~ 43283 [2,3] ~ 1043990
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 16739411 ;  [0,0] ~ 16580843 [0,1] ~ 12070 [0,2] ~ 513 [0,3] ~ 145985
+i = 1, num = 44023 ;  [1,0] ~ 16178 [1,1] ~ 15192 [1,2] ~ 0 [1,3] ~ 12653
+i = 2, num = 9823 ;  [2,0] ~ 6013 [2,1] ~ 14 [2,2] ~ 46 [2,3] ~ 3750
+i = 3, num = 51077 ;  [3,0] ~ 27200 [3,1] ~ 162 [3,2] ~ 0 [3,3] ~ 23715
 page numbers[access times], 1587888 [1], 2258771 [2-4], 1469569 [>=5]
