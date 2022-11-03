@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
+/mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
+local_c = 48301
+local cache size = 48301
+pid = 14401
+finish size =0 
+active list  = 22439, inactive list = 25862
+miss_num = 14206024, hit_num = 88006219, sum = 102212243
+miss rate = 0.138986
+mem_using = 48301
+page numbers[access times], 15034 [1], 19589 [2-4], 221920 [>=5]

@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
+/mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
+local_c = 745668
+local cache size = 745668
+pid = 19442
+finish size =0 
+active list  = 596431, inactive list = 149237
+miss_num = 15294883, hit_num = 168850092, sum = 184144975
+miss rate = 0.083059
+mem_using = 745668
+page numbers[access times], 1587888 [1], 2258771 [2-4], 1469569 [>=5]

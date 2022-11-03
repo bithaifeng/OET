@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+local_c = 150988
+local cache size = 150988
+pid = 14415
+finish size =0 
+active list  = 74013, inactive list = 76975
+miss_num = 111782422, hit_num = 826426349, sum = 938208771
+miss rate = 0.119145
+mem_using = 150988
+page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

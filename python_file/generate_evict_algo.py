@@ -7,6 +7,10 @@ import os,sys,re
 #algo = "et"
 #algo = "lirs"
 algo = "lirs_limit"
+algo= "arc_2c"
+algo = "linux_default"
+algo = "clock"
+algo = "fifo"
 for fname in os.listdir("."):
     name = re.findall("log\.(.+?)\.trace*",fname)
     if len(name):

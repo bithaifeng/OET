@@ -368,7 +368,14 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 	ppn = vpn2ppn[vpn];
 //	printf("bitmap = 0x%lx\n", bitmap);
 	int previous_id = 0;
+	if(hit_num_lirs + miss_num_lirs == 15311401 + 8468467){
+		printf("last_vpn = %lu, previo id = %d",last_vpn, previous_id);
+	}
+
 	previous_id = check_and_return( vpn, bitmap, last_access_time );
+	if(hit_num_lirs + miss_num_lirs == 15311401 + 8468467){
+		printf("last_vpn = %lu, previo id = %d",last_vpn, previous_id);
+	}
 
 	if( vpn2ppn[vpn] == local_cache_size){
 
@@ -407,7 +414,8 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 			delete_page_lirs_stackS( &vpn2list_entry[vpn] );
 //			insert_stack_s(vpn);
 			if(previous_id == 0 || previous_id == 2){
-			insert_stack_s_last_vpn(vpn, last_vpn);
+				//insert_stack_s_last_vpn(vpn, last_vpn);
+				insert_stack_s(vpn);
 			}
 			else{
 				insert_stack_s(vpn);
@@ -441,6 +449,7 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 			// the now page is 3 (-1)
 
 			// check previous first, and decide its positin
+#if 0
 			if(previous_id == 2){
 				// [2, 3] to [2, 0]
 				// previous is non-resident, this block should be LIR
@@ -467,13 +476,16 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
                 	        vpn2list_entry[vpn].vpn = vpn;
                         	vpn2list_entry[vpn].ppn = ppn;
 			}
-			else if( previous_id == 1 ){
+			else 
+#endif
+#if 1
+			if( previous_id == 1 ){
 				//[1, 3] to [0, 0]
 				// change previous vpn (last_vpn) from HIR to LIR
 				vpn2list_entry[last_vpn].status = 0;
-//				delete_page_lirs_stackS( &vpn2list_entry[last_vpn] );
-//				insert_stack_s(last_vpn);
-//				lirs_num[0] ++;
+				delete_page_lirs_stackS( &vpn2list_entry[last_vpn] );
+				insert_stack_s(last_vpn);
+				lirs_num[0] ++;
 
 				delete_page_lirs_stackQ( &ppn2list_entry_stackQ[ vpn2ppn[ last_vpn ] ] );
 				lirs_num[1] --;
@@ -500,6 +512,8 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
                                 vpn2list_entry[vpn].vpn = vpn;
                                 vpn2list_entry[vpn].ppn = ppn;
 			}
+#endif
+#if 0
 			else if( previous_id == 0){
 				// [0,3] to [0, 0]
 
@@ -526,7 +540,9 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
                                 vpn2list_entry[vpn].ppn = ppn;		
 
 			}
-			else{
+#endif
+			else
+			{
 			insert_stack_s(vpn);
 			vpn2list_entry[vpn].status = 1; //first page to stack S, set it to HIR
 			vpn2list_entry[vpn].vpn = vpn;
@@ -549,6 +565,7 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 		if( vpn2list_entry[vpn].status == 0 ){
 			//move the page to head of stack S
 //			delete_page_lirs( &vpn2list_entry[vpn] );
+#if 0
 			if(previous_id == 0){
 				;
 				delete_page_lirs_stackS( &vpn2list_entry[vpn] );
@@ -567,7 +584,9 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 				insert_stack_s_last_vpn(vpn,last_vpn);
 				stack_pruning();
 			}
-			else{
+			else
+#endif
+			{
 			delete_page_lirs_stackS( &vpn2list_entry[vpn] );
                         insert_stack_s(vpn);
 			stack_pruning();

@@ -1,0 +1,94 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+/mnt/ssd/lhf/simpletrace/specjbb.simpletrace
+local_c = 301977
+local cache size = 301977
+pid = 11310
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+scan 128 pages, but no find a page whose access bit equals to 0
+finish size =0 
+active list  = 226439, inactive list = 75538
+miss_num = 109716029, hit_num = 828341753, sum = 938057782
+miss rate = 0.116961
+mem_using = 301977
+page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

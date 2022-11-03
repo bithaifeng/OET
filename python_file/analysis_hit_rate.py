@@ -7,8 +7,8 @@ import os,sys,re
 #algo = "et"
 algo = "lirs"
 
-algo_name = ["ARC","et", "lirs", "LRU","lirs_limit", "lirs_bitmap"]
-indir_name = [ "arc","et", "lirs", "lru","lirs_limit", "lirs_bitmap"]
+algo_name = ["ARC","et", "lirs", "LRU","lirs_limit", "lirs_bitmap", "ARC_2C", "linux_default", "clock/new_result", "fifo"]
+indir_name = [ "arc","et", "lirs", "lru","lirs_limit", "lirs_bitmap", "arc_2c", "linux_default", "clock", "fifo"]
 
 
 for fname in os.listdir("."):
@@ -20,7 +20,9 @@ for fname in os.listdir("."):
         for i in range(1,6):
             # 10 persent to 50 persent
 #            for j in range(1):
-            for j in range(5,6):
+#            for j in range(5,6):
+            for j in range(8,9):
+#            for j in range(9, 10):
                 filename = "/root/lhf/evict_analysis/OET/lib/" + algo_name[j] + "/result." + name[0] + "." \
                         + indir_name[j] + "." + str(i * 10) + "percent"
 #                print(filename)
