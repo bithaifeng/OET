@@ -1,0 +1,24 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/npb-lu.simpletrace
+/mnt/ssd/lhf/simpletrace/npb-lu.simpletrace
+local_c = 92172
+pid = 9472
+local cache size = 92172
+last_vpn = 8386250, previo id = 0last_vpn = 8205974, previo id = 0finish size =0 
+stackS num = 91252, stackQ num = 920, all = 92172
+real stackS [97208], stackQ [920] 
+miss_num = 81578791, hit_num = 251430329, sum = 333009120
+rate = 0.244975
+first_access_time = 175708
+ In time:
+i = 0, num = 262021447 ;  [0,0] ~ 200464547 [0,1] ~ 163108 [0,2] ~ 23672308 [0,3] ~ 37721484
+i = 1, num = 849363 ;  [1,0] ~ 228981 [1,1] ~ 5552 [1,2] ~ 86938 [1,3] ~ 527892
+i = 2, num = 52405715 ;  [2,0] ~ 35507699 [2,1] ~ 11526 [2,2] ~ 1544250 [2,3] ~ 15342240
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 14479020 ;  [0,0] ~ 14120119 [0,1] ~ 25006 [0,2] ~ 41539 [0,3] ~ 292356
+i = 1, num = 818138 ;  [1,0] ~ 90602 [1,1] ~ 339837 [1,2] ~ 18379 [1,3] ~ 369320
+i = 2, num = 469480 ;  [2,0] ~ 23574 [2,1] ~ 101 [2,2] ~ 379537 [2,3] ~ 66268
+i = 3, num = 1882421 ;  [3,0] ~ 1395 [3,1] ~ 406 [3,2] ~ 314 [3,3] ~ 1880306
+local_access_num 21075255221 remote_access_num  81670963
+RDMA 2302532519155Compressed 2150764300307Flash 2113945487379page numbers[access times], 16777 [1], 24539 [2-4], 205893 [>=5]

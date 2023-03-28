@@ -1,0 +1,24 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/spark-graphx-cc.simpletrace
+/mnt/ssd/lhf/simpletrace/spark-graphx-cc.simpletrace
+local_c = 1050614
+pid = 8889
+local cache size = 1050614
+last_vpn = 6316381, previo id = 0last_vpn = 5074240, previo id = 0finish size =0 
+stackS num = 1040128, stackQ num = 10486, all = 1050614
+real stackS [1279348], stackQ [10486] 
+miss_num = 9866660, hit_num = 365038087, sum = 374904747
+rate = 0.026318
+first_access_time = 7511606
+ In time:
+i = 0, num = 326813303 ;  [0,0] ~ 318938903 [0,1] ~ 74286 [0,2] ~ 2564033 [0,3] ~ 5236081
+i = 1, num = 907807 ;  [1,0] ~ 48706 [1,1] ~ 1827 [1,2] ~ 1530 [1,3] ~ 855744
+i = 2, num = 3937153 ;  [2,0] ~ 3294642 [2,1] ~ 3427 [2,2] ~ 180112 [2,3] ~ 458972
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 35825279 ;  [0,0] ~ 35338536 [0,1] ~ 57123 [0,2] ~ 38726 [0,3] ~ 390894
+i = 1, num = 450190 ;  [1,0] ~ 93508 [1,1] ~ 138107 [1,2] ~ 5540 [1,3] ~ 213035
+i = 2, num = 124670 ;  [2,0] ~ 20897 [2,1] ~ 3397 [2,2] ~ 69856 [2,3] ~ 30520
+i = 3, num = 385353 ;  [3,0] ~ 81997 [3,1] ~ 12429 [3,2] ~ 5167 [3,3] ~ 285760
+local_access_num 23717390934 remote_access_num  10917274
+RDMA 1457298337370Compressed 1484841142298Flash 1466615343130page numbers[access times], 728292 [1], 668718 [2-4], 1957818 [>=5]

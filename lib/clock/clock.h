@@ -74,7 +74,7 @@ struct pte_struct{
 extern struct lirs_entry vpn2list_entry[ MAX_PPN ];
 extern struct lirs_entry ppn2list_entry_stackQ[ MAX_PPN ];
 
-extern void check_pn_clock(unsigned long page_number);
+extern void check_pn_clock(unsigned long page_number, unsigned long bitmap, unsigned long last_access_time);
 
 extern void linux_evict_init(int cache_size);
 

@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/kmeans.trace
+/mnt/ssd/lhf/kmeans.trace
+/mnt/ssd/lhf/simpletrace/kmeans.simpletrace
+/mnt/ssd/lhf/simpletrace/kmeans.simpletrace
+pid = 6121
+finish size =0 
+store_file_byte = 789019200, write_trace_num = 32875800
+page_inlist = 7648
+page numbers[access times], 83573 [1], 1733195 [2-4], 927933 [>=5]

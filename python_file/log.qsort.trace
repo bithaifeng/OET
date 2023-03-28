@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/qsort.trace
+/mnt/ssd/lhf/qsort.trace
+/mnt/ssd/lhf/simpletrace/qsort.simpletrace
+/mnt/ssd/lhf/simpletrace/qsort.simpletrace
+pid = 6115
+finish size =0 
+store_file_byte = 449493528, write_trace_num = 18728897
+page_inlist = 6827
+page numbers[access times], 11489 [1], 27690 [2-4], 1081093 [>=5]

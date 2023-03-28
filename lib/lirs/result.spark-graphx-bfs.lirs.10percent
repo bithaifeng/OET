@@ -2,10 +2,11 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/spark-graphx-bfs.simpletrace
 /mnt/ssd/lhf/simpletrace/spark-graphx-bfs.simpletrace
 local_c = 255077
-pid = 1809
+pid = 4132
 local cache size = 255077
 finish size =0 
 stackS num = 255076, stackQ num = 1, all = 255077
 real stackS [329498], stackQ [1] 
 miss_num = 43533638, hit_num = 262722142, sum = 306255780
-page numbers[access times], 738973 [1], 612950 [2-4], 1937828 [>=5]
+local_access_num 19166674991 remote_access_num  43788715
+RDMA 1667209134505Compressed 1644295647689Flash 1629715526089page numbers[access times], 738973 [1], 612950 [2-4], 1937828 [>=5]

@@ -3,10 +3,11 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/specjbb.simpletrace
 local_c = 452966
 local cache size = 452966
-pid = 14420
+pid = 3221
 finish size =0 
-active list  = 246810, inactive list = 206156
-miss_num = 109729524, hit_num = 828177269, sum = 937906793
-miss rate = 0.116994
+active list  = 339643, inactive list = 113323
+miss_num = 109883578, hit_num = 828023215, sum = 937906793
+miss rate = 0.117158
 mem_using = 452966
-page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]
+local_access_num 59473679206 remote_access_num  110336544
+RDMA 4815763972330Compressed 4566490279146Flash 4512845196522page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

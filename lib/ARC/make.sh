@@ -7,6 +7,6 @@ rm -f ./convert_trace
 
 
 # for lirs
-g++ -std=c++11  read_simple.c arc.c -w -g -o arc -fpermissive -mcmodel=medium
+g++ -std=c++11  read_simple.c arc.c time_consume.c -w -g -o arc -fpermissive -mcmodel=medium
 
 

@@ -2,9 +2,10 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/tpch-6g-q10.simpletrace
 /mnt/ssd/lhf/simpletrace/tpch-6g-q10.simpletrace
 local_c = 843789
-pid = 14735
+pid = 9021
 local cache size = 843789
 finish size =0 
 miss_num = 19064878, hit_num = 43884607, sum = 62949485
 mem_using = 843789
-page numbers[access times], 1578570 [1], 491798 [2-4], 1617675 [>=5]
+local_access_num 3765539964 remote_access_num  19908667
+RDMA 485826036020Compressed 544125265748Flash 512230049620page numbers[access times], 1578570 [1], 491798 [2-4], 1617675 [>=5]

@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/npb-cg.simpletrace
+/mnt/ssd/lhf/simpletrace/npb-cg.simpletrace
+local_c = 79871
+pid = 3395
+local cache size = 79871
+finish size =0 
+miss_num = 188134152, hit_num = 38713502, sum = 226847654
+rate = 0.829341
+mem_using = 79871
+local_access_num 14196773122 remote_access_num  188214023
+RDMA 3415818843710Compressed 2901740906718Flash 2802296236254page numbers[access times], 113601 [1], 63669 [2-4], 136009 [>=5]

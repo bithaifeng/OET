@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/npb-is.simpletrace
+/mnt/ssd/lhf/simpletrace/npb-is.simpletrace
+local_c = 211080
+pid = 3436
+local cache size = 211080
+finish size =0 
+miss_num = 5030243, hit_num = 6280551, sum = 11310794
+rate = 0.444729
+mem_using = 211080
+local_access_num 698708332 remote_access_num  5241323
+RDMA 111807480260Compressed 124372115940Flash 117046917604page numbers[access times], 9304 [1], 10632 [2-4], 411529 [>=5]

@@ -3,10 +3,11 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/wtdbg2.simpletrace
 local_c = 24150
 local cache size = 24150
-pid = 14400
+pid = 3072
 finish size =0 
-active list  = 11831, inactive list = 12319
-miss_num = 22765338, hit_num = 79471056, sum = 102236394
-miss rate = 0.222674
+active list  = 12053, inactive list = 12097
+miss_num = 22808231, hit_num = 79428163, sum = 102236394
+miss rate = 0.223093
 mem_using = 24150
-page numbers[access times], 15034 [1], 19589 [2-4], 221920 [>=5]
+local_access_num 6377886305 remote_access_num  22832381
+RDMA 670437080775Compressed 718793084327Flash 704706776487page numbers[access times], 15034 [1], 19589 [2-4], 221920 [>=5]

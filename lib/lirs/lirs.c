@@ -1,5 +1,6 @@
 #include "lirs.h"
 
+#include "time_consume.h"
 
 int local_cache_size = 0;
 /* basic sturct*/
@@ -228,7 +229,8 @@ void stack_pruning(){
 }
 
 
-void check_pn_lirs( unsigned long page_number ){
+//void check_pn_lirs( unsigned long page_number ){
+void check_pn_lirs( unsigned long page_number, unsigned long bitmap, unsigned long last_access_time){
 	unsigned long ppn, vpn;
 	vpn = page_number;
 	ppn = vpn2ppn[vpn];
@@ -236,6 +238,8 @@ void check_pn_lirs( unsigned long page_number ){
 
 
 	if( vpn2ppn[vpn] == local_cache_size){
+		remote_hit_time( bitmap );
+
 		// miis , get page from stack list Q	
 		ppn = select_and_return_free_ppn_lirs(vpn);
 		ppn2vpn[ppn] = vpn;
@@ -299,6 +303,7 @@ void check_pn_lirs( unsigned long page_number ){
 		miss_num_lirs ++;
 	}
 	else{
+		local_hit_time( bitmap );
 		// hit situation
 		//first check the page status, LIR or HIR page
 		if( vpn2list_entry[vpn].status == 0 ){
@@ -345,6 +350,7 @@ void print_analysis_lirs(){
 	printf("stackS num = %lu, stackQ num = %lu, all = %lu\n", lirs_num[0], lirs_num[1], lirs_num[0] + lirs_num[1]);        
 	printf("real stackS [%lu], stackQ [%lu] \n", lirs_num_real[0], lirs_num_real[1]);
 	printf("miss_num = %lu, hit_num = %lu, sum = %lu\n", miss_num_lirs, hit_num_lirs, miss_num_lirs + hit_num_lirs );
+	print_all_time_summry();
 	hit_num_lirs = 0;
 	miss_num_lirs = 0;
 }

@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/kmeans.simpletrace
+/mnt/ssd/lhf/simpletrace/kmeans.simpletrace
+local_c = 266112
+pid = 4054
+local cache size = 266112
+finish size =0 
+stackS num = 266111, stackQ num = 1, all = 266112
+real stackS [402884], stackQ [1] 
+miss_num = 14974272, hit_num = 17635416, sum = 32609688
+local_access_num 1944097493 remote_access_num  15240384
+RDMA 320290738115Compressed 365579581379Flash 334131378115page numbers[access times], 83573 [1], 1733195 [2-4], 927933 [>=5]

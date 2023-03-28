@@ -1,0 +1,11 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/hpl.simpletrace
+/mnt/ssd/lhf/simpletrace/hpl.simpletrace
+local_c = 189690
+pid = 3969
+local cache size = 189690
+finish size =0 
+miss_num = 3202253, hit_num = 406159046, sum = 409361299
+mem_using = 189690
+local_access_num 26044980097 remote_access_num  3391943
+RDMA 1479961107335Compressed 1488098188839Flash 1483353430567page numbers[access times], 25974 [1], 44973 [2-4], 334408 [>=5]

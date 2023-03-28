@@ -1,0 +1,24 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/npb-is.simpletrace
+/mnt/ssd/lhf/simpletrace/npb-is.simpletrace
+local_c = 126648
+pid = 9357
+local cache size = 126648
+finish size =0 
+stackS num = 125382, stackQ num = 1266, all = 126648
+real stackS [138660], stackQ [1266] 
+miss_num = 8941364, hit_num = 2453862, sum = 11395226
+rate = 0.784659
+first_access_time = 86940
+ In time:
+i = 0, num = 5236379 ;  [0,0] ~ 1315619 [0,1] ~ 6337 [0,2] ~ 1738025 [0,3] ~ 2176398
+i = 1, num = 180027 ;  [1,0] ~ 6002 [1,1] ~ 970 [1,2] ~ 307 [1,3] ~ 172748
+i = 2, num = 5334769 ;  [2,0] ~ 471037 [2,1] ~ 1138 [2,2] ~ 1428174 [2,3] ~ 3434420
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 582454 ;  [0,0] ~ 547940 [0,1] ~ 2208 [0,2] ~ 2192 [0,3] ~ 30114
+i = 1, num = 36755 ;  [1,0] ~ 4264 [1,1] ~ 21227 [1,2] ~ 402 [1,3] ~ 10862
+i = 2, num = 11361 ;  [2,0] ~ 690 [2,1] ~ 39 [2,2] ~ 7243 [2,3] ~ 3389
+i = 3, num = 53189 ;  [3,0] ~ 828 [3,1] ~ 103 [3,2] ~ 104 [3,3] ~ 52154
+local_access_num 694881643 remote_access_num  9068012
+RDMA 165170658365Compressed 187504690365Flash 173366674621page numbers[access times], 9304 [1], 10632 [2-4], 411529 [>=5]

@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/npb-mg.trace
+/mnt/ssd/lhf/npb-mg.trace
+/mnt/ssd/lhf/simpletrace/npb-mg.simpletrace
+/mnt/ssd/lhf/simpletrace/npb-mg.simpletrace
+pid = 6042
+finish size =0 
+store_file_byte = 3313297512, write_trace_num = 138054063
+page_inlist = 144661
+page numbers[access times], 22217 [1], 32338 [2-4], 917985 [>=5]

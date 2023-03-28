@@ -3,6 +3,9 @@ import os,sys
 
 evict_algo = "./lru"
 
+
+
+
 def read_path(dir_name):
 	for root, dirs, files in os.walk(dir_name):
 #		print('root_dir:', root)
@@ -11,7 +14,12 @@ def read_path(dir_name):
 		for lines in files:
                         cmd = "time ../convert_trace /mnt/ssd/lhf/" + lines + " /mnt/ssd/lhf/simpletrace/" + lines.replace(".trace",".simpletrace") + " > log."+lines + ";"
 #			print(lines)
-                        print(cmd)
+
+#                        print(cmd)
+                        
+                        if "npb" in cmd or "hpl" in cmd or "qsort" in cmd or "kmeans" in cmd or "cc" in cmd or "lp" in cmd:
+                            print(cmd)
+
 #			print(lines.replace(".trace",".simpletrace"))
 #			print("log." + lines)
 		

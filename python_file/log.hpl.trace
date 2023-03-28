@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/hpl.trace
+/mnt/ssd/lhf/hpl.trace
+/mnt/ssd/lhf/simpletrace/hpl.simpletrace
+/mnt/ssd/lhf/simpletrace/hpl.simpletrace
+pid = 6100
+finish size =0 
+store_file_byte = 9829223736, write_trace_num = 409550989
+page_inlist = 15666
+page numbers[access times], 25974 [1], 44973 [2-4], 334408 [>=5]

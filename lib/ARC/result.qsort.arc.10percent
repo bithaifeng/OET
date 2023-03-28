@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/qsort.simpletrace
+/mnt/ssd/lhf/simpletrace/qsort.simpletrace
+local_c = 110878
+pid = 3476
+local cache size = 110878
+finish size =0 
+miss_num = 7576974, hit_num = 11041045, sum = 18618019
+rate = 0.406970
+mem_using = 110878
+local_access_num 1062193925 remote_access_num  7687852
+RDMA 166050593875Compressed 184852372691Flash 173409455315page numbers[access times], 11489 [1], 27690 [2-4], 1081093 [>=5]

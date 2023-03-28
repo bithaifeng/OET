@@ -1,4 +1,5 @@
 #include "lru.h"
+#include "time_consume.h"
 
 
 int local_cache_size = 0;
@@ -96,12 +97,17 @@ unsigned long select_and_return_free_ppn_lru(unsigned long vpn){
 
 
 
-void check_pn_lru( unsigned long page_number ){
+//void check_pn_lru( unsigned long page_number ){
+void check_pn_lru( unsigned long page_number, unsigned long bitmap, unsigned long last_access_time ){
 	unsigned long ppn, vpn;
 	vpn = page_number;
 	ppn = vpn2ppn[vpn];
 
+
 	if( vpn2ppn[vpn] == local_cache_size){
+		remote_hit_time( bitmap );
+
+
 		// miis , get page from stack list Q	
 		ppn = select_and_return_free_ppn_lru(vpn);
 		ppn2vpn[ppn] = vpn;
@@ -122,6 +128,8 @@ void check_pn_lru( unsigned long page_number ){
 
 	}
 	else{
+		local_hit_time( bitmap );
+
 		// hit situation
 		delete_page_list( &vpn2list_entry[vpn] );
 		insert_page(vpn);
@@ -134,6 +142,7 @@ void print_analysis_lirs(){
 
 	printf("miss_num = %lu, hit_num = %lu, sum = %lu\n", miss_num_lru, hit_num_lru, miss_num_lru + hit_num_lru );
 	printf("mem_using = %d\n", mem_using);
+	print_all_time_summry();
 }
 
 

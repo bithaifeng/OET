@@ -1,5 +1,7 @@
 #include "arc.h"
 
+#include "time_consume.h"
+
 
 int local_cache_size = 0;
 /* basic sturct*/
@@ -258,12 +260,15 @@ unsigned long select_and_return_free_ppn_arc(unsigned long vpn){
 
 
 
-void check_pn_arc( unsigned long page_number ){
+//void check_pn_arc( unsigned long page_number ){
+void check_pn_arc( unsigned long page_number, unsigned long bitmap, unsigned long last_access_time){
 	unsigned long ppn, vpn;
 	vpn = page_number;
 	ppn = vpn2ppn[vpn];
 	struct lirs_entry *tmp_list_entry;
 	if( vpn2ppn[vpn] == local_cache_size){
+		remote_hit_time( bitmap );
+
 		// miis , get page from stack list Q	
 		ppn = select_and_return_free_ppn_arc(vpn);
 		ppn2vpn[ppn] = vpn;
@@ -279,9 +284,10 @@ void check_pn_arc( unsigned long page_number ){
 			return ;
 		}
 		miss_num_arc ++;
-
 	}
 	else{
+		local_hit_time( bitmap );
+
 		// hit situation
 		// check whether hit in LRU or FRU
 		if ( vpn2list_entry[vpn].status == 0 ){
@@ -315,7 +321,9 @@ void print_analysis_lirs(){
 //	printf("hit num = %lu, miss num = %lu\n", hit_num_arc, miss_num_arc);
 
 	printf("miss_num = %lu, hit_num = %lu, sum = %lu\n", miss_num_arc, hit_num_arc, miss_num_arc + hit_num_arc );
+        printf("rate = %lf\n", double(miss_num_arc)/ (double)( miss_num_arc + hit_num_arc ));
 	printf("mem_using = %d\n", mem_using);
+	print_all_time_summry();
 }
 
 

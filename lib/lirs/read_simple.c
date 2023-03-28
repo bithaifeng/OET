@@ -145,7 +145,8 @@ int  readfilea(){
 //		printf("0x%lx 0x%lx %lu\n", ppn, bitmap, last_access_time);
 		static_access_num(ppn);
 
-		check_pn_lirs(ppn);
+//		check_pn_lirs(ppn);
+		check_pn_lirs(ppn, bitmap, last_access_time);
 //		convert_trace( paddr, duration_all );
 //		record_filter_table( paddr, duration_all );
 		continue;

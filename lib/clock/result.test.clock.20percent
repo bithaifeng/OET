@@ -3,10 +3,11 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/test.simpletrace
 local_c = 43
 local cache size = 43
-pid = 14341
+pid = 13609
 finish size =0 
-active list  = 19, inactive list = 24
-miss_num = 1717, hit_num = 41, sum = 1758
-miss rate = 0.976678
+active list  = 6, inactive list = 37
+miss_num = 1720, hit_num = 38, sum = 1758
+miss rate = 0.978385
 mem_using = 43
+AllTimeUse 28414420
 page numbers[access times], 1308 [1], 211 [2-4], 4 [>=5]

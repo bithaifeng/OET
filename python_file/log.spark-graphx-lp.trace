@@ -1,0 +1,10 @@
+last_seq = 666
+/mnt/ssd/lhf/spark-graphx-lp.trace
+/mnt/ssd/lhf/spark-graphx-lp.trace
+/mnt/ssd/lhf/simpletrace/spark-graphx-lp.simpletrace
+/mnt/ssd/lhf/simpletrace/spark-graphx-lp.simpletrace
+pid = 6025
+finish size =0 
+store_file_byte = 23500122768, write_trace_num = 979171782
+page_inlist = 50907
+page numbers[access times], 283716 [1], 586953 [2-4], 4374956 [>=5]

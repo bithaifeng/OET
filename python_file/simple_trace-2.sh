@@ -1,0 +1,10 @@
+time ../convert_trace /mnt/ssd/lhf/spark-graphx-lp.trace /mnt/ssd/lhf/simpletrace/spark-graphx-lp.simpletrace > log.spark-graphx-lp.trace;
+time ../convert_trace /mnt/ssd/lhf/spark-graphx-cc.trace /mnt/ssd/lhf/simpletrace/spark-graphx-cc.simpletrace > log.spark-graphx-cc.trace;
+time ../convert_trace /mnt/ssd/lhf/npb-mg.trace /mnt/ssd/lhf/simpletrace/npb-mg.simpletrace > log.npb-mg.trace;
+time ../convert_trace /mnt/ssd/lhf/npb-cg.trace /mnt/ssd/lhf/simpletrace/npb-cg.simpletrace > log.npb-cg.trace;
+time ../convert_trace /mnt/ssd/lhf/npb-ft.trace /mnt/ssd/lhf/simpletrace/npb-ft.simpletrace > log.npb-ft.trace;
+time ../convert_trace /mnt/ssd/lhf/npb-lu.trace /mnt/ssd/lhf/simpletrace/npb-lu.simpletrace > log.npb-lu.trace;
+time ../convert_trace /mnt/ssd/lhf/npb-is.trace /mnt/ssd/lhf/simpletrace/npb-is.simpletrace > log.npb-is.trace;
+time ../convert_trace /mnt/ssd/lhf/hpl.trace /mnt/ssd/lhf/simpletrace/hpl.simpletrace > log.hpl.trace;
+time ../convert_trace /mnt/ssd/lhf/qsort.trace /mnt/ssd/lhf/simpletrace/qsort.simpletrace > log.qsort.trace;
+time ../convert_trace /mnt/ssd/lhf/kmeans.trace /mnt/ssd/lhf/simpletrace/kmeans.simpletrace > log.kmeans.trace;

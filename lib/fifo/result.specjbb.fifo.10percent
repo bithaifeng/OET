@@ -2,9 +2,10 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/specjbb.simpletrace
 /mnt/ssd/lhf/simpletrace/specjbb.simpletrace
 local_c = 150988
-pid = 14759
+pid = 9112
 local cache size = 150988
 finish size =0 
 miss_num = 135650451, hit_num = 802558320, sum = 938208771
 mem_using = 150988
-page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]
+local_access_num 59448214311 remote_access_num  135801439
+RDMA 5170871933105Compressed 4835014577233Flash 4766389587025page numbers[access times], 21789 [1], 27824 [2-4], 1482064 [>=5]

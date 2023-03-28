@@ -2,9 +2,11 @@ last_seq = 666
 /mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
 /mnt/ssd/lhf/simpletrace/terasort-6g-1.simpletrace
 local_c = 745668
-pid = 2227
+pid = 3530
 local cache size = 745668
 finish size =0 
 miss_num = 13632982, hit_num = 170511993, sum = 184144975
+rate = 0.074034
 mem_using = 745668
-page numbers[access times], 1587888 [1], 2258771 [2-4], 1469569 [>=5]
+local_access_num 11450262076 remote_access_num  14378650
+RDMA 831065514180Compressed 872817687172Flash 842581949060page numbers[access times], 1587888 [1], 2258771 [2-4], 1469569 [>=5]

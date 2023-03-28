@@ -1,6 +1,8 @@
 #include "lirs_bitmap.h"
 #include <unordered_map>
 
+#include "time_consume.h"
+
 int local_cache_size = 0;
 /* basic sturct*/
 unsigned long vpn2ppn[MAX_PPN] = {0};
@@ -366,6 +368,7 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 	unsigned long ppn, vpn;
 	vpn = page_number;
 	ppn = vpn2ppn[vpn];
+	unsigned long new_ppn;
 //	printf("bitmap = 0x%lx\n", bitmap);
 	int previous_id = 0;
 	if(hit_num_lirs + miss_num_lirs == 15311401 + 8468467){
@@ -373,11 +376,13 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 	}
 
 	previous_id = check_and_return( vpn, bitmap, last_access_time );
-	if(hit_num_lirs + miss_num_lirs == 15311401 + 8468467){
+	if(hit_num_lirs + miss_num_lirs == 29201649 - 1){
 		printf("last_vpn = %lu, previo id = %d",last_vpn, previous_id);
 	}
 
 	if( vpn2ppn[vpn] == local_cache_size){
+
+		remote_hit_time( bitmap );
 
 		if(  bitmap == 0xFFFFFFFFFFFFFFFF && init_lirs_flag == 1 ){
 			if (vpn2list_entry[vpn].status == -1){
@@ -482,6 +487,29 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 			if( previous_id == 1 ){
 				//[1, 3] to [0, 0]
 				// change previous vpn (last_vpn) from HIR to LIR
+				// previous page has just been evicted.
+				if( vpn2list_entry[last_vpn].status == 2 ){
+					//allocate page or not allocate
+#if 0
+					new_ppn = select_and_return_free_ppn_lirs(last_vpn);
+			                ppn2vpn[new_ppn] = last_vpn;
+			                vpn2ppn[last_vpn] = new_ppn;
+					vpn2list_entry[last_vpn].status = 0;
+					delete_page_lirs_stackS( &vpn2list_entry[last_vpn] );
+					insert_stack_s(last_vpn);
+					lirs_num[0] ++;
+#endif
+
+#if 1		
+					// not allocate
+					vpn2list_entry[last_vpn].status = 2;
+					delete_page_lirs_stackS( &vpn2list_entry[last_vpn] );
+					insert_stack_s(last_vpn);
+					//lirs_num[0] ++;
+#endif
+				}
+				else{
+
 				vpn2list_entry[last_vpn].status = 0;
 				delete_page_lirs_stackS( &vpn2list_entry[last_vpn] );
 				insert_stack_s(last_vpn);
@@ -489,6 +517,7 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 
 				delete_page_lirs_stackQ( &ppn2list_entry_stackQ[ vpn2ppn[ last_vpn ] ] );
 				lirs_num[1] --;
+				}
 
 				// process this page(vpn)
 				vpn2list_entry[vpn].status = 0;
@@ -619,6 +648,7 @@ void check_pn_lirs( unsigned long page_number ,unsigned long bitmap, unsigned lo
 		else{
 			printf("Error hit in page, state: [%d], vpn = %lu, ppn = %lu\n", vpn2list_entry[vpn], vpn, ppn);
 		}
+		local_hit_time( bitmap );
 		hit_num_lirs ++;	
 	}
 }
@@ -633,6 +663,7 @@ void print_analysis_lirs(){
 	hit_num_lirs = 0;
 	miss_num_lirs = 0;
 	print_bitmap_analysis();
+	print_all_time_summry();
 }
 
 

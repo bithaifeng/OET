@@ -1,0 +1,11 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/kmeans.simpletrace
+/mnt/ssd/lhf/simpletrace/kmeans.simpletrace
+local_c = 1064451
+pid = 8919
+local cache size = 1064451
+finish size =0 
+miss_num = 4253444, hit_num = 27557905, sum = 31811349
+mem_using = 1064451
+local_access_num 1954019982 remote_access_num  5317895
+RDMA 181921629010Compressed 194669663730Flash 187237658098page numbers[access times], 83573 [1], 1733195 [2-4], 927933 [>=5]

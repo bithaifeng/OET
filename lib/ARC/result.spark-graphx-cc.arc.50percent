@@ -1,0 +1,12 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/spark-graphx-cc.simpletrace
+/mnt/ssd/lhf/simpletrace/spark-graphx-cc.simpletrace
+local_c = 1313268
+pid = 3308
+local cache size = 1313268
+finish size =0 
+miss_num = 4995411, hit_num = 369646682, sum = 374642093
+rate = 0.013334
+mem_using = 1313268
+local_access_num 23721999529 remote_access_num  6308679
+RDMA 1393031480095Compressed 1408306916799Flash 1399333639615page numbers[access times], 728292 [1], 668718 [2-4], 1957818 [>=5]

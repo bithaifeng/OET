@@ -1,0 +1,24 @@
+last_seq = 666
+/mnt/ssd/lhf/simpletrace/qsort.simpletrace
+/mnt/ssd/lhf/simpletrace/qsort.simpletrace
+local_c = 332634
+pid = 9451
+local cache size = 332634
+finish size =0 
+stackS num = 329308, stackQ num = 3326, all = 332634
+real stackS [1086620], stackQ [3326] 
+miss_num = 4726888, hit_num = 13669375, sum = 18396263
+rate = 0.256948
+first_access_time = 80734
+ In time:
+i = 0, num = 11625185 ;  [0,0] ~ 9456564 [0,1] ~ 5475 [0,2] ~ 969799 [0,3] ~ 1193347
+i = 1, num = 412971 ;  [1,0] ~ 31496 [1,1] ~ 354 [1,2] ~ 243 [1,3] ~ 380878
+i = 2, num = 2784933 ;  [2,0] ~ 399233 [2,1] ~ 5078 [2,2] ~ 80739 [2,3] ~ 2299883
+i = 3, num = 0 ;  [3,0] ~ 0 [3,1] ~ 0 [3,2] ~ 0 [3,3] ~ 0
+ Overtime:
+i = 0, num = 3714808 ;  [0,0] ~ 3650224 [0,1] ~ 4042 [0,2] ~ 8545 [0,3] ~ 51997
+i = 1, num = 44930 ;  [1,0] ~ 10090 [1,1] ~ 10129 [1,2] ~ 182 [1,3] ~ 24529
+i = 2, num = 48453 ;  [2,0] ~ 5195 [2,1] ~ 768 [2,2] ~ 2311 [2,3] ~ 40179
+i = 3, num = 16883 ;  [3,0] ~ 722 [3,1] ~ 255 [3,2] ~ 14 [3,3] ~ 15892
+local_access_num 1064822255 remote_access_num  5059522
+RDMA 129398532025Compressed 141526976633Flash 134456129657page numbers[access times], 11489 [1], 27690 [2-4], 1081093 [>=5]

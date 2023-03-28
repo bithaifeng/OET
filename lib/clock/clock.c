@@ -1,5 +1,8 @@
 #include "clock.h"
 
+#include "time_consume.h"
+
+
 #define RRIP_BITS 2
 #define INSERT_VALUE ((1 << RRIP_BITS) - 2)
 
@@ -324,13 +327,17 @@ void linux_evict_init(int cache_size){
 }
 
 
-void check_pn_clock( unsigned long page_number ){
+//void check_pn_clock( unsigned long page_number ){
+void check_pn_clock( unsigned long page_number, unsigned long bitmap, unsigned long last_access_time ){
 	unsigned long ppn, vpn;
 	vpn = page_number;
 	ppn = vpn2ppn[vpn];
 //	printf("vpn = %lu\n", vpn);
 
 	if( vpn2ppn[vpn] == local_cache_size){
+		remote_hit_time( bitmap );
+
+
 		// miis , get page from stack list Q	
 		ppn = select_and_return_free_ppn_clock(vpn);
 		ppn2vpn[ppn] = vpn;
@@ -352,6 +359,9 @@ void check_pn_clock( unsigned long page_number ){
 
 	}
 	else{
+		local_hit_time( bitmap );
+
+
 		//update access bit
 		update_access_bit(ppn, 1);
 		hit_num_linux_default ++;	
@@ -367,6 +377,7 @@ void print_analysis_lirs(){
 	printf("miss rate = %lf\n", (double)miss_num_linux_defaul / (double)(miss_num_linux_defaul + hit_num_linux_default));
 
 	printf("mem_using = %d\n", mem_using);
+	print_all_time_summry();
 }
 
 
